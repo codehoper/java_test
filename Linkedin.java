@@ -2,7 +2,7 @@ package com.ub.dynamic;
 
 import java.util.Arrays;
 
-public class Linkedin {
+public class Linked {
 	
 	
 	private boolean verifyPalindorm(String s) {
