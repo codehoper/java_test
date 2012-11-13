@@ -1,8 +1,9 @@
 package com.ub.interview;
 
+
 public class SLL<E> {
 
-	private Node<E> head = null;
+	public Node<E> head = null;
 	
 	public void  addPayload(E aPayload) {
 		head = new Node<E>(aPayload, head);
@@ -14,8 +15,8 @@ public class SLL<E> {
 		String result = "";
 		while(tempHead != null) {
 			result += tempHead.getPayload();
-			if(tempHead.getNext()!= null) {
-				tempHead = tempHead.getNext();
+			if(tempHead.next!= null) {
+				tempHead = tempHead.next;
 				result += " ==> ";
 			}
 			else {
@@ -24,4 +25,21 @@ public class SLL<E> {
 		}
 		return result;
 	}
+	
+	
+	public Node<E> reverseList(Node<E> currentNode,Node<E> toBeNextNode) {
+		
+		Node<E> curHead = currentNode;
+		if((curHead == null || curHead.getNext() == null) && toBeNextNode == null) {
+			return curHead; //ignore size 0 & 1
+		}
+		 if (curHead.getNext() != null) {
+			 curHead = reverseList(currentNode.getNext(), currentNode); // travarse till end recursively
+		 }
+		 currentNode.next = toBeNextNode; // reverse link
+		 toBeNextNode.next = null;
+		 return curHead;
+	}
+		
+	
 }

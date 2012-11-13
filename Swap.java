@@ -23,12 +23,4 @@ public class Swap {
 		System.out.println("After swapping a :"+a+" ::and b :"+b);
 	}
 	
-	public void swapBinary(int a,int b) {
-		System.out.println("Before swapping a :"+a+" ::and b :"+b);
-		a ^= b; //(a = a xor b)
-		b ^= a;
-		a ^= b;
-		System.out.println("After swapping a :"+a+" ::and b :"+b);
-	}
-	
 }

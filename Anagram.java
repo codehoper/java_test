@@ -1,41 +1,45 @@
-package com.ub.viks;
+package com.ub.interview;
 
-class Anagram {
-	private String input1;
-	private String input2;
+import java.util.Arrays;
 
-	Anagram () {
+/**
+ * 
+ * @author Vikram
+ *
+ *An alphagram of a word (or of any group of letters) consists of the word's letters arranged in alphabetical order. 
+ *For example, the alphagram of alphagram is aaaghlmpr. 
+ *Two words are anagrams of each other if and only if they have the same alphagram.
+ */
+public class Anagram {
+
+	public Anagram() {
+
 	}
 
-
-	private boolean isAnagram (String i1,String i2) {
-		this.input1 = i1.toLowerCase();
-		this.input2 = i2.toLowerCase();
-		//create hash and it should ne same
-		int len1 = input1.length();
-		int len2 = input2.length();
+	public boolean  verifyAnagram(String first,String second) {
 		boolean isAnagram = false;
-		if(len1 == len2) {
-			int hash1 = 0,hash2 = 0;
-			for(int i=0;i<this.input1.length();i++) {
-				hash1 += (int)this.input1.charAt(i); 
-				hash2 += (int)this.input2.charAt(i); 	
+		if(first.length() == second.length()) {
+			char [] caseChar1 = first.toCharArray();
+			char [] caseChar2 = second.toCharArray();
+
+			//Convert all charcters to lowercase ,here if we use iterator we might have to loop O(n^2) times
+			for(int i=0;i<caseChar1.length;i++) {
+				caseChar1[i] = Character.toLowerCase(caseChar1[i]);
+				caseChar2[i] = Character.toLowerCase(caseChar2[i]);
 			}
-			if(hash1 == hash2 && hash1 != 0) {
+
+			//Sort elements to create alphagram
+			Arrays.sort(caseChar1);
+			Arrays.sort(caseChar2);
+
+			if(Arrays.equals(caseChar1, caseChar2)) {
 				isAnagram = true;
 			}
-		} 
-		return isAnagram;
-	}
 
-
-	public static void main(String args[]) {
-		Anagram ang = new Anagram();
-		boolean isAnagram = ang.isAnagram("gorithm","logarithm");
-		if(isAnagram == true) {
-			System.out.println("This is anagram");
-		} else {
-			System.out.println("This is not anagram");
 		}
+
+		return isAnagram;
+
 	}
+
 }
