@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 
- * @author Vikram
+ * 
  *
  *An alphagram of a word (or of any group of letters) consists of the word's letters arranged in alphabetical order. 
  *For example, the alphagram of alphagram is aaaghlmpr. 
