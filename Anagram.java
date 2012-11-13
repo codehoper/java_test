@@ -1,45 +1,41 @@
-package com.ub.interview;
+package com.ub.viks;
 
-import java.util.Arrays;
+class Anagram {
+	private String input1;
+	private String input2;
 
-/**
- * 
- * @author Vikram
- *
- *An alphagram of a word (or of any group of letters) consists of the word's letters arranged in alphabetical order. 
- *For example, the alphagram of alphagram is aaaghlmpr. 
- *Two words are anagrams of each other if and only if they have the same alphagram.
- */
-public class Anagram {
-
-	public Anagram() {
-
+	Anagram () {
 	}
 
-	public boolean  verifyAnagram(String first,String second) {
+
+	private boolean isAnagram (String i1,String i2) {
+		this.input1 = i1.toLowerCase();
+		this.input2 = i2.toLowerCase();
+		//create hash and it should ne same
+		int len1 = input1.length();
+		int len2 = input2.length();
 		boolean isAnagram = false;
-		if(first.length() == second.length()) {
-			char [] caseChar1 = first.toCharArray();
-			char [] caseChar2 = second.toCharArray();
-
-			//Convert all charcters to lowercase ,here if we use iterator we might have to loop O(n^2) times
-			for(int i=0;i<caseChar1.length;i++) {
-				caseChar1[i] = Character.toLowerCase(caseChar1[i]);
-				caseChar2[i] = Character.toLowerCase(caseChar2[i]);
+		if(len1 == len2) {
+			int hash1 = 0,hash2 = 0;
+			for(int i=0;i<this.input1.length();i++) {
+				hash1 += (int)this.input1.charAt(i); 
+				hash2 += (int)this.input2.charAt(i); 	
 			}
-
-			//Sort elements to create alphagram
-			Arrays.sort(caseChar1);
-			Arrays.sort(caseChar2);
-
-			if(Arrays.equals(caseChar1, caseChar2)) {
+			if(hash1 == hash2 && hash1 != 0) {
 				isAnagram = true;
 			}
-
-		}
-
+		} 
 		return isAnagram;
-
 	}
 
+
+	public static void main(String args[]) {
+		Anagram ang = new Anagram();
+		boolean isAnagram = ang.isAnagram("gorithm","logarithm");
+		if(isAnagram == true) {
+			System.out.println("This is anagram");
+		} else {
+			System.out.println("This is not anagram");
+		}
+	}
 }
