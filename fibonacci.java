@@ -1,5 +1,3 @@
-package com.ub.codeeval;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,6 +30,25 @@ public class fibonacci {
 		
 		return ans;
 	}
+
+	int factorial_rec(int n) {
+		//base case
+		int fact = 0;
+		if(n == 0) {
+			return 1;
+		} else {
+		  fact = n * factorial_rec(n-1);	
+		}
+		return fact;
+	}
+
+	int factorialIterative(int n) {
+		int fact = 1;
+		for (int i=2 ; i<=n; i++) {
+			fact = fact * i;
+		}
+		return fact;
+	}
 	
 	
 	//fibonaci series 
@@ -51,7 +68,12 @@ public class fibonacci {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
+		System.out.println( "rec Rfactorial for 5 = "+ fib.factorial_rec(5) );
+		System.out.println( "Iterative factorial for 5 = "+ fib.factorialIterative(5) );
+		
 	}
+	
+	
 
 }
