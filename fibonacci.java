@@ -10,7 +10,7 @@ public class fibonacci {
 		if (n <= 1 && n >= 0) {
 			return n;
 		}else {
-			n = fibo_rec(n -1) + fibo_rec(n-2);
+			n = fibo_rec(n -1) + fibo_rec(n-2); //SP always remain here to remember what happened next
 		}
 		return n;
 	}
